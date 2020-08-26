@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
 var bodyParser = require('body-parser');
 
+app.use(cors());
+app.options('*', cors());
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
