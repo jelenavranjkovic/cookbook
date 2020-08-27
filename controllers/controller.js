@@ -1,5 +1,6 @@
 const User = require("../model/user.js");
 const Post = require("../model/post.js")
+const Comment = require("../model/comment.js")
 
 // Create and Save a new user
 exports.login = (req, res) => {
@@ -39,3 +40,17 @@ exports.getAllPosts = (req, res) => {
   });
 
 };
+
+exports.getPostComments = (req, res) => {
+  Comment.getAllComments(req.params.id, (err, data) => {
+    if (err) {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Customer."
+      });
+      return;
+    }
+    res.status(200).send(data);
+  });
+
+}
