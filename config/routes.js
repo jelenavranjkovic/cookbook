@@ -4,7 +4,7 @@ module.exports = app => {
   // Create a new Customer
   app.post("/login", controller.login);
 
-  app.get("/getAllPosts", controller.getAllPosts)
+  app.get("/getAllPosts/type/:type", controller.getAllPosts)
 
   // // Retrieve all Customers
   // app.get("/customers", customers.findAll);

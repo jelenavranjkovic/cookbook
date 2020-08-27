@@ -27,7 +27,7 @@ exports.login = (req, res) => {
 };
 
 exports.getAllPosts = (req, res) => {
-  Post.getAll((err, data) => {
+  Post.getAll(req.params.type, (err, data) => {
     if (err) {
       res.status(500).send({
         message:

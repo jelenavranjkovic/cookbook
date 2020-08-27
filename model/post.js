@@ -7,8 +7,8 @@ const Post = function(post) {
   this.content = post.content;
 };
 
-Post.getAll = (result) => {
-  sql.query("SELECT * FROM post", (err, res) => {
+Post.getAll = (type, result) => {
+  sql.query("SELECT * FROM post WHERE type = ?", type, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
