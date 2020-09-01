@@ -10,4 +10,6 @@ module.exports = app => {
 
   app.post("/post/id/:id/createComment", controller.createComment);
 
+  app.post("/post", controller.createPost);
+
 };
