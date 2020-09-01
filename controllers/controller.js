@@ -52,5 +52,17 @@ exports.getPostComments = (req, res) => {
     }
     res.status(200).send(data);
   });
+}
 
+exports.createComment = (req, res) => {
+  Comment.create(req.params.id, req.body.content, req.body.userId, (err, data) => {
+    if (err) {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the comment."
+      });
+      return;
+    }
+    res.status(201).send();
+  });
 }
