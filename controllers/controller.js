@@ -50,6 +50,7 @@ exports.getPostComments = (req, res) => {
       });
       return;
     }
+    console.log(data);
     res.status(200).send(data);
   });
 }
@@ -63,7 +64,7 @@ exports.createComment = (req, res) => {
       });
       return;
     }
-    res.status(201).send();
+    res.status(201).send(data);
   });
 }
 

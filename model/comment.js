@@ -15,7 +15,14 @@ Comment.getAllComments = (postId, result) => {
       return;
     }
 
-    result(null, res);
+    sql.query("SELECT * FROM post WHERE id = ?", postId, (err1, res1) => {
+        var data = new Object();
+        data.comments = res;
+        data.title = res1[0].title;
+        data.content = res1[0].content;
+        console.log(data)
+        result(null, data);
+    })
   });
 };
 
