@@ -38,4 +38,16 @@ Comment.create = (postId, content, userId, result) => {
   });
 };
 
+Comment.delete = (id, result) => {
+  console.log(id);
+  sql.query("DELETE FROM comments WHERE id = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+    result(null, res);
+  });
+}
+
 module.exports = Comment;

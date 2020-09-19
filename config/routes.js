@@ -12,4 +12,6 @@ module.exports = app => {
 
   app.post("/post", controller.createPost);
 
+  app.delete("/comment", controller.deleteComment);
+
 };
